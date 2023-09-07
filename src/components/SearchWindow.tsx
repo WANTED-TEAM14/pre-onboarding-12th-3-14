@@ -1,10 +1,9 @@
 import { styled } from 'styled-components';
 
-import { isEmptyString } from '../utils/isEmptyString';
-
-import CurrentKeyword from './SearchWindowItems/CurrentKeyword';
-import CurrentKeywordsArea from './SearchWindowItems/CurrentKeywordsArea';
-import RecomendedKeywordsArea from './SearchWindowItems/RecomendedKeywordsArea';
+import CurrentKeyword from 'components/SearchWindowItems/CurrentKeyword';
+import CurrentKeywordsArea from 'components/SearchWindowItems/CurrentKeywordsArea';
+import RecomendedKeywordsArea from 'components/SearchWindowItems/RecomendedKeywordsArea';
+import { isEmptyString } from 'utils/isEmptyString';
 
 export interface Props {
   keyword: string;

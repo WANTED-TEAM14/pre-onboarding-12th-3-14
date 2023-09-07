@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import './App.css';
 import { styled } from 'styled-components';
 
-import SearchBar from './components/SearchBar';
-import SearchWindow from './components/SearchWindow';
+import SearchBar from 'components/SearchBar';
+import SearchWindow from 'components/SearchWindow';
 
 function App() {
   const [keyword, setKeyword] = useState('');

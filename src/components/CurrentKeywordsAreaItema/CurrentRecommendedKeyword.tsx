@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
-import { Sick } from '../../hooks/useSearch';
-import ScopeIcon from '../common/ScopeIcon';
+import ScopeIcon from 'components/common/ScopeIcon';
+import { Sick } from 'hooks/useSearch';
 
 function CurrentRecommendedKeyword({ recommendedKeyword }: { recommendedKeyword: Sick }) {
   return (

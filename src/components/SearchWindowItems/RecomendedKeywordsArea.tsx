@@ -1,6 +1,6 @@
-import { styled } from 'styled-components';
+import { DEFAULT_RECOMENDED_KEYWORDS } from 'constants';
 
-import { DEFAULT_RECOMENDED_KEYWORDS } from '../../constants';
+import { styled } from 'styled-components';
 
 function RecomendedKeywordsArea() {
   return (

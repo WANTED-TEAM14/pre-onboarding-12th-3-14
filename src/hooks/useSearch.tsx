@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import CacheApiServer from '../api/CacheApiServer';
-import { isEmptyString } from '../utils/isEmptyString';
+import CacheApiServer from 'apis/CacheApiServer';
+import { isEmptyString } from 'utils/isEmptyString';
 
 export interface Sick {
   sickCd: string;

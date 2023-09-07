@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import ScopeIcon from '../common/ScopeIcon';
+import ScopeIcon from 'components/common/ScopeIcon';
 
 function CurrentKeyword({ keyword }: { keyword: string }) {
   return (

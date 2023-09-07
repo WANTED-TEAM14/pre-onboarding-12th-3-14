@@ -2,7 +2,7 @@ import React from 'react';
 
 import { styled } from 'styled-components';
 
-import ScopeIcon from './common/ScopeIcon';
+import ScopeIcon from 'components/common/ScopeIcon';
 
 interface Props {
   isSearchBarFocused: boolean;

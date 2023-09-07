@@ -1,10 +1,10 @@
 import { styled } from 'styled-components';
 
-import useSearch from '../../hooks/useSearch';
-import { isEmptyString } from '../../utils/isEmptyString';
-import CurrentRecommendedKeyword from '../CurrentKeywordsAreaItema/CurrentRecommendedKeyword';
-import FocusedRecommendedKeyword from '../CurrentKeywordsAreaItema/FocusedRecommendedKeyword';
-import { Props } from '../SearchWindow';
+import CurrentRecommendedKeyword from 'components/CurrentKeywordsAreaItema/CurrentRecommendedKeyword';
+import FocusedRecommendedKeyword from 'components/CurrentKeywordsAreaItema/FocusedRecommendedKeyword';
+import { Props } from 'components/SearchWindow';
+import useSearch from 'hooks/useSearch';
+import { isEmptyString } from 'utils/isEmptyString';
 
 function CurrentKeywordsArea({ keyword, focusedResult }: Props) {
   const { recommendedKeywords, isLoading } = useSearch(keyword);
