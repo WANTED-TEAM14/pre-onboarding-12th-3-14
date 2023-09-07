@@ -3,11 +3,13 @@ import { styled } from 'styled-components';
 import CurrentRecommendedKeyword from 'components/CurrentKeywordsAreaItema/CurrentRecommendedKeyword';
 import FocusedRecommendedKeyword from 'components/CurrentKeywordsAreaItema/FocusedRecommendedKeyword';
 import { Props } from 'components/SearchWindow';
+import { useDebounce } from 'hooks/useDebounce';
 import useSearch from 'hooks/useSearch';
 import { isEmptyString } from 'utils/isEmptyString';
 
 function CurrentKeywordsArea({ keyword, focusedResult }: Props) {
-  const { recommendedKeywords, isLoading } = useSearch(keyword);
+  const { debouncedValue } = useDebounce(keyword);
+  const { recommendedKeywords, isLoading } = useSearch(debouncedValue);
   const MAX_RESULT_LENGTH = 7;
   const shownRecommendedKeywords = recommendedKeywords.slice(0, MAX_RESULT_LENGTH);
   const isResultNotFound =
