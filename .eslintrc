@@ -45,7 +45,8 @@
           { "pattern": "store/**", "group": "internal" },
           { "pattern": "pages/**", "group": "internal" },
           { "pattern": "components/**", "group": "internal" },
-          { "pattern": "hooks/**", "group": "internal" }
+          { "pattern": "hooks/**", "group": "internal" },
+          { "pattern": "constants/**", "group": "internal" }
         ],
         "pathGroupsExcludedImportTypes": ["react", "react-dom"],
         "alphabetize": {
