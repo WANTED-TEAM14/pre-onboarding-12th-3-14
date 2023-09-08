@@ -14,8 +14,6 @@ const useSearch = (debouncedKeyword: string) => {
 
   useEffect(() => {
     setIsLoading(true);
-    setRecommendedKeywords([]);
-
     if (!isEmptyString(debouncedKeyword)) {
       const getRecomendedKeywords = async () => {
         const data = await CacheApiServer.getRecommendedKeword(debouncedKeyword);
