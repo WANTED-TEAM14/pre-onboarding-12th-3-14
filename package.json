@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@netlify/functions": "^2.0.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -25,8 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postinstall": "husky install",
-    "dev": "netlify dev"
+    "postinstall": "husky install"
   },
   "lint-staged": {
     "src/**/*.{js,ts,jsx,tsx}": [

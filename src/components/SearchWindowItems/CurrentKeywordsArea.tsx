@@ -1,46 +1,46 @@
 import { styled } from 'styled-components';
 
-import CurrentRecommendedKeyword from 'components/CurrentKeywordsAreaItema/CurrentRecommendedKeyword';
-import FocusedRecommendedKeyword from 'components/CurrentKeywordsAreaItema/FocusedRecommendedKeyword';
-import { Props } from 'components/SearchWindow';
-import useSearch from 'hooks/useSearch';
+import Message from 'components/common/Message';
+import RecommendedKeyword from 'components/CurrentKeywordsAreaItema/RecommendedKeyword';
+import { KeywordsProps } from 'components/SearchWindow';
 import { isEmptyString } from 'utils/isEmptyString';
 
-function CurrentKeywordsArea({ keyword, focusedResult }: Props) {
-  const { recommendedKeywords, isLoading } = useSearch(keyword);
+function CurrentKeywordsArea({
+  keyword,
+  focusedResult,
+  recommendedKeywords,
+  isLoading,
+}: KeywordsProps) {
   const MAX_RESULT_LENGTH = 7;
   const shownRecommendedKeywords = recommendedKeywords.slice(0, MAX_RESULT_LENGTH);
-  const isResultNotFound =
-    !isLoading && shownRecommendedKeywords.length === 0 && !isEmptyString(keyword);
+  const ShowKeywordsLength = shownRecommendedKeywords.length;
+  const isResultNotFound = !isLoading && ShowKeywordsLength === 0 && !isEmptyString(keyword);
+
+  const renderRecommendedKeywords = () => {
+    return shownRecommendedKeywords.map((recommendedKeyword, idx) => {
+      return (
+        <RecommendedKeyword
+          key={recommendedKeyword.sickCd}
+          recommendedKeyword={recommendedKeyword}
+          isFocused={idx === focusedResult}
+        />
+      );
+    });
+  };
 
   return (
     <CurrentKeywordsAreaWrapper>
-      <AreaTitle>{isEmptyString(keyword) ? '최근 검색어' : '추천 검색어'}</AreaTitle>
-      {isEmptyString(keyword) && <div>최근 검색어가 없습니다.</div>}
       <CurrentRecommendedKeywords>
-        {isLoading ? (
-          <div>로딩 중...</div>
-        ) : (
-          shownRecommendedKeywords.map((recommendedKeyword, idx) => {
-            if (idx === focusedResult)
-              return <FocusedRecommendedKeyword recommendedKeyword={recommendedKeyword} />;
-            return <CurrentRecommendedKeyword recommendedKeyword={recommendedKeyword} />;
-          })
-        )}
-        {isResultNotFound && <div>관련 검색어 없음</div>}
+        {isLoading ? <Message message='로딩 중...' /> : renderRecommendedKeywords()}
+        {isResultNotFound && <Message message='관련 검색어 없음' />}
       </CurrentRecommendedKeywords>
     </CurrentKeywordsAreaWrapper>
   );
 }
 export default CurrentKeywordsArea;
 
-const AreaTitle = styled.div`
-  margin: 0 0 24px 0;
-  color: rgba(0, 0, 0, 0.5);
-`;
-
 const CurrentKeywordsAreaWrapper = styled.div`
-  padding: 0 0 24px 24px;
+  padding: 0 0 24px 0;
 `;
 
 const CurrentRecommendedKeywords = styled.ul``;
