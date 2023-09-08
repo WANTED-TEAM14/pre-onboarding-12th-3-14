@@ -1,8 +1,6 @@
-import { DEFAULT_RECOMENDED_KEYWORDS } from 'constants/index';
-
-import React from 'react';
-
 import { styled } from 'styled-components';
+
+import { DEFAULT_RECOMENDED_KEYWORDS } from 'constants/index';
 
 function RecomendedKeywordsArea() {
   return (

@@ -5,13 +5,15 @@ import { styled } from 'styled-components';
 
 import SearchBar from 'components/SearchBar';
 import SearchWindow from 'components/SearchWindow';
+import { useDebounce } from 'hooks/useDebounce';
 import useSearch from 'hooks/useSearch';
 
 function App() {
   const [keyword, setKeyword] = useState('');
   const [isSearchBarFocused, setIsSearchBarFocused] = useState(false);
   const [focusedResult, setFocuedResult] = useState(0);
-  const { recommendedKeywords, isLoading } = useSearch(keyword);
+  const { debouncedValue } = useDebounce(keyword);
+  const { recommendedKeywords, isLoading } = useSearch(debouncedValue);
 
   return (
     <div className='App'>
