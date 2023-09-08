@@ -17,7 +17,6 @@ function RecomendedKeywordsArea() {
 export default RecomendedKeywordsArea;
 
 const RecomendedKeywordsAreaWrapper = styled.div`
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 24px 0 0 24px;
   & div:first-child {
     margin: 0 0 24px 0;

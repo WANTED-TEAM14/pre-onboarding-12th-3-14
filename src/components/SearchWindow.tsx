@@ -3,18 +3,26 @@ import { styled } from 'styled-components';
 import CurrentKeyword from 'components/SearchWindowItems/CurrentKeyword';
 import CurrentKeywordsArea from 'components/SearchWindowItems/CurrentKeywordsArea';
 import RecomendedKeywordsArea from 'components/SearchWindowItems/RecomendedKeywordsArea';
+import { Sick } from 'hooks/useSearch';
 import { isEmptyString } from 'utils/isEmptyString';
 
-export interface Props {
+export interface KeywordsProps {
   keyword: string;
   focusedResult: number;
+  recommendedKeywords: Sick[];
+  isLoading: boolean;
 }
 
-function SearchWindow({ keyword, focusedResult }: Props) {
+function SearchWindow({ keyword, focusedResult, recommendedKeywords, isLoading }: KeywordsProps) {
   return (
     <SearchWindowWrapper>
       {!isEmptyString(keyword) && <CurrentKeyword keyword={keyword} />}
-      <CurrentKeywordsArea keyword={keyword} focusedResult={focusedResult} />
+      <CurrentKeywordsArea
+        keyword={keyword}
+        focusedResult={focusedResult}
+        recommendedKeywords={recommendedKeywords}
+        isLoading={isLoading}
+      />
       {isEmptyString(keyword) && <RecomendedKeywordsArea />}
     </SearchWindowWrapper>
   );

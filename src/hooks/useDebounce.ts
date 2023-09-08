@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const DELAY_TIME = 1000;
+const DELAY_TIME = 300;
 
 export const useDebounce = (keyword: string) => {
   const [debouncedValue, setDebouncedValue] = useState<string>(keyword);

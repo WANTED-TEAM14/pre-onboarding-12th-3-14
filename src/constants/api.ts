@@ -1,1 +1,1 @@
-export const BASE_URL = 'http://clinic-json-server.vercel.app/sick';
+export const BASE_URL = 'http://localhost:4000/sick';

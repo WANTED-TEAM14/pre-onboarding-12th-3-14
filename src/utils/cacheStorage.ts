@@ -1,5 +1,4 @@
 import { HEADER_FETCH_DATE, EXPIRE_TIME } from 'constants/cache';
-
 import { Sick } from 'hooks/useSearch';
 
 export const checkIsExpired = (cacheResponse: Response) => {
@@ -9,7 +8,6 @@ export const checkIsExpired = (cacheResponse: Response) => {
 
   const cacheDataDate = new Date(cachedData).getTime();
   const today = new Date().getTime();
-
   return today - cacheDataDate > EXPIRE_TIME;
 };
 

@@ -1,6 +1,5 @@
 import { BASE_URL } from 'constants/api';
 import { CACHE_STORAGE } from 'constants/cache';
-
 import { getCachedData, setCachedData } from 'utils/cacheStorage';
 
 export const getRecommendedKeywords = async (keyword: string) => {
