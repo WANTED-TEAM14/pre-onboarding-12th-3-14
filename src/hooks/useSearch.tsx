@@ -8,28 +8,22 @@ export interface Sick {
   sickNm: string;
 }
 
-const useSearch = (keyword: string) => {
+const useSearch = (debouncedKeyword: string) => {
   const [recommendedKeywords, setRecommendedKeywords] = useState<Sick[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     setIsLoading(true);
-    setRecommendedKeywords([]);
-
-    if (!isEmptyString(keyword)) {
-      const timer = setTimeout(() => {
-        const getRecomendedKeywords = async () => {
-          const data = await CacheApiServer.getRecommendedKeword(keyword);
-          setRecommendedKeywords(data);
-        };
-        getRecomendedKeywords();
-        setIsLoading(false);
-      }, 300);
-      return () => {
-        clearTimeout(timer);
+    if (!isEmptyString(debouncedKeyword)) {
+      const getRecomendedKeywords = async () => {
+        const data = await CacheApiServer.getRecommendedKeword(debouncedKeyword);
+        setRecommendedKeywords(data);
       };
+      getRecomendedKeywords();
+      setIsLoading(false);
     }
     setIsLoading(false);
-  }, [keyword]);
+  }, [debouncedKeyword]);
 
   return { recommendedKeywords, isLoading };
 };
