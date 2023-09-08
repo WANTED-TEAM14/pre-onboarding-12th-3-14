@@ -1,4 +1,5 @@
 import { BASE_URL } from 'constants/api';
+import { CACHE_STORAGE } from 'constants/cache';
 
 import { getCachedData, setCachedData } from 'utils/cacheStorage';
 
@@ -6,13 +7,13 @@ export const getRecommendedKeywords = async (keyword: string) => {
   try {
     const queryUrl = `${BASE_URL}?q=${keyword}`;
 
-    const cachedData = await getCachedData(BASE_URL, queryUrl);
+    const cachedData = await getCachedData(CACHE_STORAGE, queryUrl);
 
     if (cachedData) return cachedData;
 
     const response = await fetch(queryUrl);
     const data = await response.json();
-    await setCachedData(BASE_URL, queryUrl, data);
+    await setCachedData(CACHE_STORAGE, queryUrl, data);
     console.info('calling api');
 
     return data;
