@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import CacheApiServer from 'apis/CacheApiServer';
+import { getRecommendedKeywords } from 'apis/index';
 import { isEmptyString } from 'utils/isEmptyString';
 
 export interface Sick {
@@ -14,9 +14,11 @@ const useSearch = (debouncedKeyword: string) => {
 
   useEffect(() => {
     setIsLoading(true);
+    setRecommendedKeywords([]);
+
     if (!isEmptyString(debouncedKeyword)) {
       const getRecomendedKeywords = async () => {
-        const data = await CacheApiServer.getRecommendedKeword(debouncedKeyword);
+        const data = await getRecommendedKeywords(debouncedKeyword);
         setRecommendedKeywords(data);
       };
       getRecomendedKeywords();
