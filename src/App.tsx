@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import './App.css';
 import { styled } from 'styled-components';
@@ -10,12 +10,6 @@ function App() {
   const [keyword, setKeyword] = useState('');
   const [isSearchBarFocused, setIsSearchBarFocused] = useState(false);
   const [focusedResult, setFocuedResult] = useState(0);
-
-  useEffect(() => {
-    fetch('/.netlify/functions/server')
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
-  }, []);
 
   return (
     <div className='App'>
