@@ -1,4 +1,4 @@
-const BASE_URL = '/.netlify/functions/server';
+const BASE_URL = 'http://localhost:4000/sick';
 const HEADER_FETCH_DATE = 'fetch-date';
 const ONE_DAY_MILISECOND = 1000 * 60 * 60 * 24;
 
