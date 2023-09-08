@@ -13,7 +13,7 @@ function App() {
   const [isSearchBarFocused, setIsSearchBarFocused] = useState(false);
   const [focusedResult, setFocuedResult] = useState(0);
   const { debouncedValue } = useDebounce(keyword);
-  const { recommendedKeywords, isLoading } = useSearch(debouncedValue);
+  const { recommendedKeywords, isLoading } = useSearch(debouncedValue, keyword);
 
   return (
     <div className='App'>
